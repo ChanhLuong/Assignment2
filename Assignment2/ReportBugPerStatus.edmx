@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Assignment2Model3.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="GetBugNumberStatusPeriod" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FromDate" Type="varchar" Mode="In" />
+          <Parameter Name="ToDate" Type="varchar" Mode="In" />
+          <Parameter Name="Status" Type="varchar" Mode="In" />
+          <Parameter Name="ProjectID" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="Assignment2Model3StoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Assignment2Model3" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Assignment2Entities7" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="GetBugNumberStatusPeriod" ReturnType="Collection(Assignment2Model3.GetBugNumberStatusPeriod_Result)">
+            <Parameter Name="FromDate" Mode="In" Type="String" />
+            <Parameter Name="ToDate" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+            <Parameter Name="ProjectID" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="GetBugNumberStatusPeriod_Result">
+          <Property Type="Int32" Name="Number" Nullable="true" />
+          <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Assignment2Model3StoreContainer" CdmEntityContainer="Assignment2Entities7" >
+          <FunctionImportMapping FunctionImportName="GetBugNumberStatusPeriod" FunctionName="Assignment2Model3.Store.GetBugNumberStatusPeriod">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Assignment2Model3.GetBugNumberStatusPeriod_Result">
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

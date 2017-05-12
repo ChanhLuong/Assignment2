@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Assignment2DataSet1" targetNamespace="http://tempuri.org/Assignment2DataSet1.xsd" xmlns:mstns="http://tempuri.org/Assignment2DataSet1.xsd" xmlns="http://tempuri.org/Assignment2DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="Assignment2ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Assignment2ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Assignment2.Properties.Settings.GlobalReference.Default.Assignment2ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BugDataTableAdapter" GeneratorDataComponentClassName="BugDataTableAdapter" Name="BugData" UserDataComponentName="BugDataTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Assignment2ConnectionString (Settings)" DbObjectName="Assignment2.dbo.BugData" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Project FROM dbo.BugData</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Project" DataSetColumn="Project" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Assignment2DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="Assignment2DataSet1" msprop:Generator_UserDSName="Assignment2DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="BugData" msprop:Generator_TableClassName="BugDataDataTable" msprop:Generator_TableVarName="tableBugData" msprop:Generator_TablePropName="BugData" msprop:Generator_RowDeletingName="BugDataRowDeleting" msprop:Generator_RowChangingName="BugDataRowChanging" msprop:Generator_RowEvHandlerName="BugDataRowChangeEventHandler" msprop:Generator_RowDeletedName="BugDataRowDeleted" msprop:Generator_UserTableName="BugData" msprop:Generator_RowChangedName="BugDataRowChanged" msprop:Generator_RowEvArgName="BugDataRowChangeEvent" msprop:Generator_RowClassName="BugDataRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Project" msprop:Generator_ColumnVarNameInTable="columnProject" msprop:Generator_ColumnPropNameInRow="Project" msprop:Generator_ColumnPropNameInTable="ProjectColumn" msprop:Generator_UserColumnName="Project" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

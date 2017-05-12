@@ -1,0 +1,496 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DAC9368C-F26F-4B1E-ABF2-CF18D387146E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Assignment2</RootNamespace>
+    <AssemblyName>Assignment2</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Add New Defect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add New Defect.Designer.cs">
+      <DependentUpon>Add New Defect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add New Testcase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add New Testcase.Designer.cs">
+      <DependentUpon>Add New Testcase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddNewTester.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewTester.Designer.cs">
+      <DependentUpon>AddNewTester.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssignedToMember.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AssignedToMember.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AssignedToMember.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AssignedToMember.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AssignedToMember.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AssignedToMember.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Assignment1Entity.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Assignment1Entity.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Assignment1Entity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Assignment1Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Assignment1Entity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Assignment1Entity.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Assignment2DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Assignment2DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Assignment2DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Assignment2DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Assignment2DataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Assignment2DataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Assignment2DataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Assignment2DataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Assignment2DataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Assignment2DataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Assignment2DataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Assignment2DataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Assignment2DataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Assignment2DataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BugPerProjectcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BugPerProjectcs.Designer.cs">
+      <DependentUpon>BugPerProjectcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BugRatingModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BugRatingModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BugRatingModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BugRatingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BugRatingModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BugRatingModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DefectDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DefectDetails.Designer.cs">
+      <DependentUpon>DefectDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DefectStatus.cs" />
+    <Compile Include="GetBugByProject_Result.cs">
+      <DependentUpon>Assignment1Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetBugNumberAssignee_Result.cs">
+      <DependentUpon>AssignedToMember.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetBugNumberStatusPeriod_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetBugRating_Result.cs">
+      <DependentUpon>BugRatingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDIParent1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIParent1.Designer.cs">
+      <DependentUpon>MDIParent1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="ProjectBugReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectBugReport.Designer.cs">
+      <DependentUpon>ProjectBugReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportBugPerStatus.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportBugPerStatus.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReportBugPerStatus.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportBugPerStatus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReportBugPerStatus.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportBugPerStatus.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm.Designer.cs">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SearchPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchPage.Designer.cs">
+      <DependentUpon>SearchPage.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Add New Defect.resx">
+      <DependentUpon>Add New Defect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add New Testcase.resx">
+      <DependentUpon>Add New Testcase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNewTester.resx">
+      <DependentUpon>AddNewTester.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BugByProject.rdlc" />
+    <EmbeddedResource Include="BugPerAssignee.rdlc" />
+    <EmbeddedResource Include="BugPerProjectcs.resx">
+      <DependentUpon>BugPerProjectcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BugPerStatus.rdlc" />
+    <EmbeddedResource Include="BugRating.rdlc" />
+    <EmbeddedResource Include="DefectDetails.resx">
+      <DependentUpon>DefectDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIParent1.resx">
+      <DependentUpon>MDIParent1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectBugReport.resx">
+      <DependentUpon>ProjectBugReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ReportForm.resx">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchPage.resx">
+      <DependentUpon>SearchPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Assignment1Entity.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Assignment1Entity.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="AssignedToMember.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AssignedToMember.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="AssignedToMember.edmx.diagram">
+      <DependentUpon>AssignedToMember.edmx</DependentUpon>
+    </None>
+    <None Include="Assignment1Entity.edmx.diagram">
+      <DependentUpon>Assignment1Entity.edmx</DependentUpon>
+    </None>
+    <None Include="Assignment2DataSet.xsc">
+      <DependentUpon>Assignment2DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Assignment2DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Assignment2DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Assignment2DataSet.xss">
+      <DependentUpon>Assignment2DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Assignment2DataSet1.xsc">
+      <DependentUpon>Assignment2DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Assignment2DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Assignment2DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Assignment2DataSet1.xss">
+      <DependentUpon>Assignment2DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Assignment2DataSet2.xsc">
+      <DependentUpon>Assignment2DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="Assignment2DataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Assignment2DataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Assignment2DataSet2.xss">
+      <DependentUpon>Assignment2DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="Assignment2DataSet3.xsc">
+      <DependentUpon>Assignment2DataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="Assignment2DataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Assignment2DataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Assignment2DataSet3.xss">
+      <DependentUpon>Assignment2DataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="Assignment2DataSet4.xsc">
+      <DependentUpon>Assignment2DataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="Assignment2DataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Assignment2DataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Assignment2DataSet4.xss">
+      <DependentUpon>Assignment2DataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="Assignment2DataSet5.xsc">
+      <DependentUpon>Assignment2DataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="Assignment2DataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Assignment2DataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Assignment2DataSet5.xss">
+      <DependentUpon>Assignment2DataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="Assignment2DataSet6.xsc">
+      <DependentUpon>Assignment2DataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="Assignment2DataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Assignment2DataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Assignment2DataSet6.xss">
+      <DependentUpon>Assignment2DataSet6.xsd</DependentUpon>
+    </None>
+    <EntityDeploy Include="BugRatingModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BugRatingModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="BugRatingModel.edmx.diagram">
+      <DependentUpon>BugRatingModel.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\GetBugByProject_Result.datasource" />
+    <None Include="Properties\DataSources\GetBugNumberAssignee_Result.datasource" />
+    <None Include="Properties\DataSources\GetBugNumberStatusPeriod_Result.datasource" />
+    <None Include="Properties\DataSources\GetBugRating_Result.datasource" />
+    <None Include="Properties\DataSources\ProjectBugReport.datasource" />
+    <None Include="Properties\DataSources\ReportForm.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EntityDeploy Include="ReportBugPerStatus.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ReportBugPerStatus.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ReportBugPerStatus.edmx.diagram">
+      <DependentUpon>ReportBugPerStatus.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AssignedToMember.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AssignedToMember.edmx</DependentUpon>
+      <LastGenOutput>AssignedToMember.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="AssignedToMember.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AssignedToMember.edmx</DependentUpon>
+      <LastGenOutput>AssignedToMember.cs</LastGenOutput>
+    </Content>
+    <Content Include="Assignment1Entity.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Assignment1Entity.edmx</DependentUpon>
+      <LastGenOutput>Assignment1Entity.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Assignment1Entity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Assignment1Entity.edmx</DependentUpon>
+      <LastGenOutput>Assignment1Entity.cs</LastGenOutput>
+    </Content>
+    <Content Include="BugRatingModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BugRatingModel.edmx</DependentUpon>
+      <LastGenOutput>BugRatingModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="BugRatingModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BugRatingModel.edmx</DependentUpon>
+      <LastGenOutput>BugRatingModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="ReportBugPerStatus.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ReportBugPerStatus.edmx</DependentUpon>
+      <LastGenOutput>ReportBugPerStatus.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ReportBugPerStatus.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ReportBugPerStatus.edmx</DependentUpon>
+      <LastGenOutput>ReportBugPerStatus.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
