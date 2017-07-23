@@ -1,0 +1,91 @@
+-- UI
+
+Add Defects
+Manage Defects
+Update Defects
+
+
+-- Defect table
+-- Defect Queries
+-- Connection String
+
+
+
+
+
+UI => .exe
+	Add Defects => ldlDefectId.Text => Defect.Id
+				=> txtDescription.Text => Defect.Description
+				
+	Manage Defects
+	Update Defects
+	
+	AddNewTester
+	
+	BugPerProjectcs
+	DefectDetails
+	Home
+	Login
+	MDIParent1
+	
+	ProjectBugReport
+	ReportForm
+	SearchPage
+	
+Business
+	Defect Management (Defect Validation)
+	For Ex: DefectBusiness => Search, Update (validation), Add (validation), 
+	
+	//dung
+	public bool Add(Defect item) {
+	
+	}
+	
+	//sai
+	public bool Add(string id, string description){
+	
+	}
+								
+	DefectBusiness => DefectService
+	UserBusiness   => UserService
+	CredentialBusiness => CredentialService
+	
+	SearchBusiness => full text index search => SearchService
+	ReportBusiness => queries => ReportService
+								
+								
+DataAccess => 1 or multiple projects
+	Defect Queries
+	Forex: Defect data table => DefectAccess.cs - Get List
+											 - Get By Id
+											 - Search
+											 - Update
+											 - Add
+											 - Delete
+											 
+	 UserDataAccess. => UserData => UserDAO
+	 ProjectDataAccess => ProjectData => ProjectDao
+	 SubProjectDataAccess => SubProjectData  => SubProjectDAO 
+	 
+	 DataConnectionService ExecuteReader(string sql) { get connection => return data)
+	 
+	 Hungarian
+	 
+
+Id, Description, => CreatedBy
+
+BusinessObject => Domain Object
+
+Defect, User, Project, SubProject
+											 
+Workflow:
+ 1. Add Defect Form => DefectBusiness.Add (validation) => validation pass => DefectAccess.Add => Store db.
+ 1. Add Defect Form => DefectBusiness.Add (validation) => validation not pass => Alert error to defect form.
+ 
+ 
+ Solution 
+	Folders
+		Project => dll
+			Folders/namespace
+				Class
+				
