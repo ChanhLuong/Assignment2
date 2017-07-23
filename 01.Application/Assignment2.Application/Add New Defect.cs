@@ -9,13 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-namespace Assignment2
+namespace Assignment2.Application
 {
+    using Assignments.Business;
+
     public partial class Add_New_Defect : Form
     {
         Add_New_Testcase formTC = new Add_New_Testcase();
 
-        SqlConnection conn = new SqlConnection(@"Data Source=(local)\SQLEXPRESS;Initial Catalog=Assignment2;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=MEOMEO-PC\SQLEXPRESS;Initial Catalog=Assignment2;Integrated Security=True");
         SqlCommand comd = new SqlCommand();
         string SubSystemIDTemp;
         string UserIDTemp;
@@ -39,22 +41,13 @@ namespace Assignment2
         }
         void ProjectList()
         {
-            conn.Open(); // connection management
+            var service = new DefectService();
+            var projects = service.ProjectList(UserIDTemp);
 
-            // database queries 
-            //SqlCommand sqlCmd = new SqlCommand("SELECT DISTINCT Name FROM Projects", conn);
-            SqlCommand sqlCmd = new SqlCommand("select ID, Name from Projects where ID in (select ProjectID from SubSystem where ID in (select SubSystemID from Assignment where UserID = '" + UserIDTemp + "'))", conn);
-            SqlDataReader sqlReader = sqlCmd.ExecuteReader();
+            var proj = projects.FirstOrDefault();
 
-            // render data to UI
-            while (sqlReader.Read())
-            {
-                lblProjectName.Text = sqlReader["Name"].ToString();
-                projectID = sqlReader["ID"].ToString();
-            }
-
-            //connection management
-            conn.Close();
+            lblProjectName.Text = proj.Name;
+            projectID = proj.Id;
         }
 
         void SubSystem()
@@ -97,22 +90,16 @@ namespace Assignment2
             conn.Close();
         }
 
-        public void TestcaseList()
+        void TestcaseList()
         {
             conn.Open();
-            List<CmbItem> tcList = new List<CmbItem>();
-            SqlCommand TestcaseQuery = new SqlCommand("SELECT ID, (ID + '  ' + Name) as Name FROM Testcases WHERE SubSystemID = '" + SubSystemIDTemp + "' order by DateTime ASC", conn);
+            SqlCommand TestcaseQuery = new SqlCommand("SELECT ID, Name FROM Testcases WHERE SubSystemID = '" + SubSystemIDTemp + "' order by DateTime ASC", conn);
             SqlDataReader TestcaseRead = TestcaseQuery.ExecuteReader();
             while (TestcaseRead.Read())
             {
-                var cmbItem = new CmbItem(TestcaseRead["ID"].ToString(), TestcaseRead["Name"].ToString());
-                tcList.Add(cmbItem);
+                cmbTestcase.Items.Add(TestcaseRead["ID"].ToString() + '-' + TestcaseRead["Name"].ToString());
             }
             conn.Close();
-            cmbTestcase.DataSource = tcList;
-            cmbTestcase.DisplayMember = "Text";
-            cmbTestcase.ValueMember = "Text";
-            cmbTestcase.SelectedIndex = 0;
         }
 
 
@@ -140,7 +127,9 @@ namespace Assignment2
         {
             GenerateAutoID();
             this.lblReporter.Text = this.UserNameND;
-            UserIDTemp = this.UserID;           
+            UserIDTemp = this.UserID;
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.None;
             comd.Connection = conn;
             ProjectList();
             SubSystem();
@@ -170,15 +159,19 @@ namespace Assignment2
             if (dr == DialogResult.OK)
             {
                 TestcaseList();
-            } 
+            }
+            
+
+
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void btnAddNew_Click_1(object sender, EventArgs e)
+        private void btnAddNew_Click(object sender, EventArgs e)
         {
             string severityNo = null;
 
@@ -214,22 +207,20 @@ namespace Assignment2
                    "', '" + txtBuild.Text + "','" + SubSystemIDTemp + "', '" + txtEnvironment.Text +
                    "', '" + cmbSeverityAdd.SelectedItem.ToString() +
                    "','" + projectID + "','" + UserID.ToString() +
-                   "', '" + cmbTestcase.SelectedValue.ToString() +
+                   "', '" + cmbTestcase.SelectedItem.ToString() +
                    "', '" + cmbTaxonomy.SelectedItem.ToString() + "', getdate(),'"+ severityNo.ToString() + "')", conn);
                 comd.ExecuteNonQuery();
-                MessageBox.Show("Defect submitted");
+                MessageBox.Show("Record Inserted");
                 conn.Close();
                 GenerateAutoID();
 
             }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
-            Close();
-        }
 
-       
+        }
     }
 }
 
