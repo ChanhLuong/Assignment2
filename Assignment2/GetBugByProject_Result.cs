@@ -18,5 +18,6 @@ namespace Assignment2
         public string Status { get; set; }
         public string Testcase { get; set; }
         public string Taxonamy { get; set; }
+        public string Subsystem { get; set; }
     }
 }

@@ -13,9 +13,12 @@ namespace Assignment2
 {
     public partial class DefectDetails : Form
     {
-        SqlConnection conn = new SqlConnection(@"Data Source=MEOMEO-PC\SQLEXPRESS;Initial Catalog=Assignment2;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=(local)\SQLEXPRESS;Initial Catalog=Assignment2;Integrated Security=True");
         SqlCommand comd = new SqlCommand();
         string roleIDTemp;
+
+        string subSystem;
+    
         public DefectDetails()
         {
             InitializeComponent();
@@ -27,6 +30,39 @@ namespace Assignment2
         public string BugID { get; set; }
         public string RoleIDDD { get; set; }
 
+        void subsystemid()
+        {
+            conn.Open();
+
+            SqlCommand SSTQuery = new SqlCommand("SELECT SubSystemID from Assignment where UserID = '" + this.UserIDDD.ToString() + "' AND SubSystemID is not NULL", conn);
+            SqlDataReader SSTRead = SSTQuery.ExecuteReader();
+            while (SSTRead.Read())
+            {
+                subSystem = SSTRead["SubSystemID"].ToString();
+
+            }
+            conn.Close();
+        }
+        void AssigneeList()
+        {
+            subsystemid();
+            conn.Open();
+            List<CmbItem> asList = new List<CmbItem>();           
+            SqlCommand AssigneeQuery = new SqlCommand("SELECT ID, Name FROM Users where ID in (select UserID from Assignment where UserID != '"
+                + this.UserIDDD.ToString() + "' AND SubSystemID = '" + subSystem.ToString() + "')", conn);
+
+            SqlDataReader AssigneeRead = AssigneeQuery.ExecuteReader();
+            while (AssigneeRead.Read())
+            {
+                var cmbItem = new CmbItem(AssigneeRead["ID"].ToString(), AssigneeRead["Name"].ToString());
+                asList.Add(cmbItem);
+            }
+            conn.Close();
+            cmbAssignee.DataSource = asList;
+            cmbAssignee.DisplayMember = "Text";
+            cmbAssignee.ValueMember = "Text";
+
+        }
         private void BindStatusData(string role)
         {
 
@@ -36,6 +72,7 @@ namespace Assignment2
             var Fixed = new DefectStatus("Fixed");
             var Rejected = new DefectStatus("Rejected");
             var Closed = new DefectStatus("Closed");
+            var Verified = new DefectStatus("Verified");
             var Reopened = new DefectStatus("Reopened");
             var New = new DefectStatus("New");
             if (role == "R1") //Tester
@@ -43,38 +80,46 @@ namespace Assignment2
                 listStatus.Add(Assigned);
                 listStatus.Add(Fixed);
                 listStatus.Add(Reopened);
+                listStatus.Add(Verified);
                 listStatus.Add(Closed);
-                cmbAssignee.Enabled = false;
+                cmbStatus.Enabled = true;
             }
             else if (role == "R2") //Developer
             {
                 listStatus.Add(Fixed);
                 listStatus.Add(Rejected);
                 listStatus.Add(Reopened);
-                cmbAssignee.Enabled = false;
+                cmbStatus.Enabled = true;
             }
             else if ((role == "R3") || (role == "R4"))
             {
                 listStatus.Add(New);
+                listStatus.Add(Assigned);
+                listStatus.Add(Fixed);
+                listStatus.Add(Reopened);
                 listStatus.Add(Closed);
+               
             }
             cmbStatus.DataSource = listStatus;
             cmbStatus.DisplayMember = "Description";
             cmbStatus.ValueMember = "Description";
-           // cmbStatus.DataSource = listStatus;
+          //  cmbAssignee.Enabled = true;
+            cmbStatus.Enabled = true;   
         }
 
         private void DefectDetails_Load(object sender, EventArgs e)
         {
+            
             roleIDTemp = this.RoleIDDD;
             BindStatusData(roleIDTemp);
-
+            AssigneeList();
             this.TopMost = true;
-            lblReporter.Text = this.UserNameDD;
+           
             lblDefectID.Text = this.BugID.ToString();
+            
             conn.Open();
 
-            SqlCommand DefectDetailQuery = new SqlCommand("SELECT Description,Priority, Steps, Status, BuildNo, Assignee, Env, Subsystem, Severity, Project, TestCase, Taxonamy, DateTime FROM BugData WHERE ID = '" + this.BugID.ToString() + "'", conn);
+            SqlCommand DefectDetailQuery = new SqlCommand("SELECT Description,Priority, Steps, Status, BuildNo, Assignee, Env, Subsystem, Severity, Project, TestCase, Taxonamy, DateTime, ReporterID, Comment FROM BugData WHERE ID = '" + this.BugID.ToString() + "'", conn);
             SqlDataReader DefectDetailRead = DefectDetailQuery.ExecuteReader();
             while (DefectDetailRead.Read())
             {
@@ -90,8 +135,10 @@ namespace Assignment2
                 lblProjectDesc.Text = DefectDetailRead["Project"].ToString();
                 lblTestcase.Text = DefectDetailRead["TestCase"].ToString();
                 lblTaxonamy1.Text = DefectDetailRead["Taxonamy"].ToString();
+                lblReporter.Text = DefectDetailRead["ReporterID"].ToString();
                 var createdDate = DateTime.Parse(DefectDetailRead["DateTime"].ToString());
                 lblCreaedDate.Text = createdDate.ToShortDateString();
+                txtComment.Text = DefectDetailRead["Comment"].ToString();
             }
             conn.Close();
         }
@@ -108,7 +155,7 @@ namespace Assignment2
             cmbStatus.Enabled = true;
             txtComment.Enabled = true;
             btnSave.Enabled = true;
-           
+            
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -116,10 +163,12 @@ namespace Assignment2
 
             conn.Open();
             comd = new SqlCommand("UPDATE BugData SET Status= '"+ cmbStatus.SelectedValue.ToString()+"', Comment = '"+ 
-                txtComment.Text +"' WHERE ID = '"+ this.BugID.ToString()+"'", conn);
+                txtComment.Text +"' , Assignee = '"+ cmbAssignee.SelectedValue.ToString() +"' WHERE ID = '"+ this.BugID.ToString()+"'", conn);
             comd.ExecuteNonQuery();
             MessageBox.Show("Record Updated");
             conn.Close();
         }
+
+  
     }
 }

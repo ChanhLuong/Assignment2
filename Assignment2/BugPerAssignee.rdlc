@@ -11,6 +11,9 @@
             <TablixColumn>
               <Width>1.59375in</Width>
             </TablixColumn>
+            <TablixColumn>
+              <Width>1in</Width>
+            </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
@@ -25,7 +28,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Number of bugs</Value>
+                              <Value>Assignee Name</Value>
                               <Style>
                                 <FontFamily>Segoe UI Symbol</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -61,7 +64,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Assignee Name</Value>
+                              <Value>Number of bugs</Value>
                               <Style>
                                 <FontFamily>Segoe UI Symbol</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -88,30 +91,29 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
-              </TablixCells>
-            </TablixRow>
-            <TablixRow>
-              <Height>0.25in</Height>
-              <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Number">
+                    <Textbox Name="Textbox1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Number.Value</Value>
+                              <Value />
                               <Style>
                                 <FontFamily>Segoe UI Symbol</FontFamily>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Number</rd:DefaultName>
+                      <rd:DefaultName>Textbox1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -125,6 +127,11 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.25in</Height>
+              <TablixCells>
                 <TablixCell>
                   <CellContents>
                     <Textbox Name="Assignee">
@@ -157,12 +164,79 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Number1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Number.Value</Value>
+                              <Style>
+                                <FontFamily>Segoe UI Symbol</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Number1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox2">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Segoe UI Symbol</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox2</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
           </TablixRows>
         </TablixBody>
         <TablixColumnHierarchy>
           <TablixMembers>
+            <TablixMember />
             <TablixMember />
             <TablixMember />
           </TablixMembers>
@@ -179,9 +253,9 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>0.405in</Top>
-        <Left>1.93625in</Left>
+        <Left>1.655in</Left>
         <Height>0.58333in</Height>
-        <Width>3.30556in</Width>
+        <Width>4.30556in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -192,10 +266,10 @@
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>6.5in</Width>
+  <Width>6.83208in</Width>
   <Page>
     <PageHeader>
-      <Height>1in</Height>
+      <Height>1.01958in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -209,7 +283,7 @@
                   <Value>NUMBER OF BUGS FOR EACH MEMBER</Value>
                   <Style>
                     <FontFamily>Segoe UI Symbol</FontFamily>
-                    <FontSize>12pt</FontSize>
+                    <FontSize>16pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -220,10 +294,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox7</rd:DefaultName>
-          <Top>0.35292in</Top>
-          <Left>1.405in</Left>
-          <Height>0.25in</Height>
-          <Width>3.96875in</Width>
+          <Top>0.17584in</Top>
+          <Left>1.10292in</Left>
+          <Height>0.375in</Height>
+          <Width>4.57292in</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -241,6 +315,47 @@
         </Border>
       </Style>
     </PageHeader>
+    <PageFooter>
+      <Height>1in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox4">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="Page: "&amp;Globals!PageName</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox4</rd:DefaultName>
+          <Top>0.02778in</Top>
+          <Left>5.55083in</Left>
+          <Height>0.25in</Height>
+          <Width>1in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
     <TopMargin>1in</TopMargin>

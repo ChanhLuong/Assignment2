@@ -34,17 +34,19 @@
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewDefectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewTestcaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNewMemberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNewProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.report = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.username = new System.Windows.Forms.Label();
             this.userRole = new System.Windows.Forms.Label();
-            this.txtUser = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtUserID = new System.Windows.Forms.TextBox();
             this.lblPrjName = new System.Windows.Forms.Label();
-            this.addNewMemberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtUserID = new System.Windows.Forms.Label();
+            this.txtUser = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -66,7 +68,9 @@
             this.homeToolStripMenuItem,
             this.addNewDefectToolStripMenuItem,
             this.addNewTestcaseToolStripMenuItem,
-            this.addNewMemberToolStripMenuItem});
+            this.addNewMemberToolStripMenuItem,
+            this.addNewProjectToolStripMenuItem,
+            this.logOutToolStripMenuItem});
             this.defectToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.defectToolStripMenuItem.Name = "defectToolStripMenuItem";
             this.defectToolStripMenuItem.Size = new System.Drawing.Size(66, 25);
@@ -75,23 +79,44 @@
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.homeToolStripMenuItem.Text = "Home";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // addNewDefectToolStripMenuItem
             // 
             this.addNewDefectToolStripMenuItem.Name = "addNewDefectToolStripMenuItem";
-            this.addNewDefectToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
+            this.addNewDefectToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.addNewDefectToolStripMenuItem.Text = "Add New Defect";
             this.addNewDefectToolStripMenuItem.Click += new System.EventHandler(this.addNewDefectToolStripMenuItem_Click_1);
             // 
             // addNewTestcaseToolStripMenuItem
             // 
             this.addNewTestcaseToolStripMenuItem.Name = "addNewTestcaseToolStripMenuItem";
-            this.addNewTestcaseToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
+            this.addNewTestcaseToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.addNewTestcaseToolStripMenuItem.Text = "Add New Testcase";
             this.addNewTestcaseToolStripMenuItem.Click += new System.EventHandler(this.addNewTestcaseToolStripMenuItem_Click);
+            // 
+            // addNewMemberToolStripMenuItem
+            // 
+            this.addNewMemberToolStripMenuItem.Name = "addNewMemberToolStripMenuItem";
+            this.addNewMemberToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            this.addNewMemberToolStripMenuItem.Text = "Add New Member";
+            this.addNewMemberToolStripMenuItem.Click += new System.EventHandler(this.addNewMemberToolStripMenuItem_Click);
+            // 
+            // addNewProjectToolStripMenuItem
+            // 
+            this.addNewProjectToolStripMenuItem.Name = "addNewProjectToolStripMenuItem";
+            this.addNewProjectToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            this.addNewProjectToolStripMenuItem.Text = "Add New Project";
+            this.addNewProjectToolStripMenuItem.Click += new System.EventHandler(this.addNewProjectToolStripMenuItem_Click);
+            // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            this.logOutToolStripMenuItem.Text = "Log Out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // report
             // 
@@ -137,15 +162,6 @@
             this.userRole.TabIndex = 2;
             this.userRole.Text = "userRole";
             // 
-            // txtUser
-            // 
-            this.txtUser.Enabled = false;
-            this.txtUser.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUser.Location = new System.Drawing.Point(400, -1);
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(67, 29);
-            this.txtUser.TabIndex = 4;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -155,15 +171,6 @@
             this.label1.Size = new System.Drawing.Size(61, 21);
             this.label1.TabIndex = 6;
             this.label1.Text = "User ID";
-            // 
-            // txtUserID
-            // 
-            this.txtUserID.Enabled = false;
-            this.txtUserID.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserID.Location = new System.Drawing.Point(218, 1);
-            this.txtUserID.Name = "txtUserID";
-            this.txtUserID.Size = new System.Drawing.Size(69, 29);
-            this.txtUserID.TabIndex = 7;
             // 
             // lblPrjName
             // 
@@ -176,23 +183,34 @@
             this.lblPrjName.Text = "PrjName";
             this.lblPrjName.Visible = false;
             // 
-            // addNewMemberToolStripMenuItem
+            // txtUserID
             // 
-            this.addNewMemberToolStripMenuItem.Name = "addNewMemberToolStripMenuItem";
-            this.addNewMemberToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
-            this.addNewMemberToolStripMenuItem.Text = "Add new Member";
-            this.addNewMemberToolStripMenuItem.Click += new System.EventHandler(this.addNewMemberToolStripMenuItem_Click);
+            this.txtUserID.AutoSize = true;
+            this.txtUserID.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserID.Location = new System.Drawing.Point(218, 4);
+            this.txtUserID.Name = "txtUserID";
+            this.txtUserID.Size = new System.Drawing.Size(0, 21);
+            this.txtUserID.TabIndex = 11;
+            // 
+            // txtUser
+            // 
+            this.txtUser.AutoSize = true;
+            this.txtUser.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUser.Location = new System.Drawing.Point(400, 4);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Size = new System.Drawing.Size(0, 21);
+            this.txtUser.TabIndex = 12;
             // 
             // MDIParent1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(696, 453);
-            this.Controls.Add(this.lblPrjName);
-            this.Controls.Add(this.txtUserID);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtUser);
+            this.Controls.Add(this.txtUserID);
+            this.Controls.Add(this.lblPrjName);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.userRole);
             this.Controls.Add(this.username);
             this.Controls.Add(this.statusStrip);
@@ -222,13 +240,15 @@
         public System.Windows.Forms.ToolStripMenuItem report;
         public System.Windows.Forms.Label userRole;
         public System.Windows.Forms.Label username;
-        public System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtUserID;
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addNewTestcaseToolStripMenuItem;
         public System.Windows.Forms.Label lblPrjName;
         private System.Windows.Forms.ToolStripMenuItem addNewMemberToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addNewProjectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
+        private System.Windows.Forms.Label txtUserID;
+        private System.Windows.Forms.Label txtUser;
     }
 }
 

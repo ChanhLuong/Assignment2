@@ -13,7 +13,7 @@ namespace Assignment2
 {
     public partial class AddNewTester : Form
     {
-        SqlConnection conn = new SqlConnection(@"Data Source=MEOMEO-PC\SQLEXPRESS;Initial Catalog=Assignment2;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=(local)\SQLEXPRESS;Initial Catalog=Assignment2;Integrated Security=True");
         SqlCommand comd = new SqlCommand();
         public AddNewTester()
         {
@@ -33,45 +33,32 @@ namespace Assignment2
             lblTesterID.Text = "UID" + i.ToString();
         }
 
-        public void SubsystemList()
-        {
-            conn.Open();
-            SqlCommand SubsystemQuery = new SqlCommand("SELECT ID, Description FROM SubSystem WHERE ID in (SELECT SubSystemID from Assignment Where UserID = '" + UserIDTester + "')", conn);
-            SqlDataReader SubsystemRead = SubsystemQuery.ExecuteReader();
-            while (SubsystemRead.Read())
-            {
-                cmbSubSystem.Items.Add(SubsystemRead["ID"].ToString());// + "-" + SubsystemRead["Description"].ToString());                
-            }
-            conn.Close();
-            cmbSubSystem.SelectedIndex = 0;
-
-        }
+       
         void ProjectInfo()
         {
             conn.Open();
-            //SqlCommand sqlCmd = new SqlCommand("SELECT DISTINCT Name FROM Projects", conn);
-            SqlCommand sqlCmd = new SqlCommand("select ID, Name from Projects where ID in (select ProjectID from SubSystem where ID in (select SubSystemID from Assignment where UserID = '" + UserIDTester + "'))", conn);
+            List<CmbItem> itemList = new List<CmbItem>();     
+            SqlCommand sqlCmd = new SqlCommand("select ID, Name from Projects", conn);
             SqlDataReader sqlReader = sqlCmd.ExecuteReader();
             while (sqlReader.Read())
             {
-                txtProject.Text = sqlReader["ID"].ToString() + " - " + sqlReader["Name"].ToString();
-                prjID = sqlReader["ID"].ToString();
+                var cmbItem = new CmbItem(sqlReader["ID"].ToString(), sqlReader["Name"].ToString());
+                itemList.Add(cmbItem);
             }
             conn.Close();
+            cmbProject.DataSource = itemList;
+            cmbProject.DisplayMember = "Text";
+            cmbProject.ValueMember = "ID";
+            cmbProject.SelectedIndex = 0;
+
         }
 
         void RoleList()
-        {
-            conn.Open();
-            //SqlCommand sqlCmd = new SqlCommand("SELECT DISTINCT Name FROM Projects", conn);
-            SqlCommand sqlCmd = new SqlCommand("select ID, Description from Role where ID = '" + "R1"+ "'OR ID = '" + "R2" +"'", conn);
-            SqlDataReader sqlReader = sqlCmd.ExecuteReader();
-            while (sqlReader.Read())
-            {
-                cmbRole.Items.Add(sqlReader["ID"].ToString() + " - " + sqlReader["Description"].ToString());
-
-            }
-            conn.Close();
+        {           
+            List<CmbItem> roleList = ComboData.GetRole();
+            cmbRole.DataSource = roleList;
+            cmbRole.DisplayMember = "Text";
+            cmbRole.ValueMember = "Id";
             cmbRole.SelectedIndex = 0;
         }
 
@@ -82,15 +69,16 @@ namespace Assignment2
             int i = Convert.ToInt32(comd.ExecuteScalar());
             conn.Close();
             i++;
-            asID = "ASS" + i.ToString();
+            asID = "A" + i.ToString();
         }
 
         private void AddNewTester_Load(object sender, EventArgs e)
         {
-            AutoTesterID();
-            SubsystemList();
-            ProjectInfo();
             RoleList();
+            AutoTesterID();
+            ProjectInfo();
+            subsystemlist();
+                        
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -100,20 +88,53 @@ namespace Assignment2
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            string roleID = cmbRole.SelectedValue.ToString();
+          
+            string projectID = cmbProject.SelectedValue.ToString(); 
+
+            string subsystemleID = cmbSubSystem.SelectedValue.ToString();
+
             AutoAssignmentID();
             conn.Open();
             SqlCommand comd1 = new SqlCommand("INSERT INTO Users VALUES('" + lblTesterID.Text +
                "','" + txtName.Text + "','" + txtPassword.Text + "')", conn);
             comd1.ExecuteNonQuery();
-
-            SqlCommand comd2 = new SqlCommand("INSERT INTO Assignment (ID, ProjectID, SubSystemID ) VALUES ('" + asID +
-               "','" + txtProject.Text + "','" + cmbSubSystem.SelectedIndex.ToString() + "')", conn);
-            comd2.ExecuteNonQuery();
-
-            MessageBox.Show("Testcase Inserted");
-            DialogResult = DialogResult.OK;
             conn.Close();
+
+            conn.Open();
+            SqlCommand comd2 = new SqlCommand("INSERT INTO Assignment (ID, UserID, RoleID, SubSystemID, ProjectID ) VALUES ('" + asID +
+               "', '"+ lblTesterID.Text + "','" + roleID +"', '"+ subsystemleID +"', '" + projectID + "')", conn);
+            comd2.ExecuteNonQuery();
+            conn.Close();
+
+            MessageBox.Show("New Member Inserted");
+            DialogResult = DialogResult.OK;
             AutoTesterID();
+        }
+
+        void subsystemlist()
+        {
+            string projectID = cmbProject.SelectedValue.ToString();
+            conn.Open();
+
+            SqlCommand sqlCmd = new SqlCommand("select ID, Description from SubSystem Where ProjectID = '" + projectID + "'", conn);
+            SqlDataReader sqlReader = sqlCmd.ExecuteReader();
+            List<CmbItem> itemList = new List<CmbItem>();
+            while (sqlReader.Read())
+            {
+                var cmbItem = new CmbItem(sqlReader["ID"].ToString(), sqlReader["Description"].ToString());
+                itemList.Add(cmbItem);
+            }
+            conn.Close();
+            cmbSubSystem.DataSource = itemList;
+            cmbSubSystem.DisplayMember = "Text";
+            cmbSubSystem.ValueMember = "Id";
+
+        }
+
+        private void cmbProject_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            subsystemlist();
         }
     }
 }

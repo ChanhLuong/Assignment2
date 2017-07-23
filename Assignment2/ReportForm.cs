@@ -18,7 +18,7 @@ namespace Assignment2
         public string projectIDRP { get; set; }
         public string userRoleRP { get; set; }
 
-        SqlConnection conn = new SqlConnection(@"Data Source=MEOMEO-PC\SQLEXPRESS;Initial Catalog=Assignment2;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=(local)\SQLEXPRESS;Initial Catalog=Assignment2;Integrated Security=True");
         SqlCommand comd = new SqlCommand();
         public ReportForm()
         {
@@ -156,6 +156,7 @@ namespace Assignment2
         int numberOfClick = 0;
         private void btnBugStatus_Click(object sender, EventArgs e)
         {
+            
             numberOfClick++;
             switch (numberOfClick)
             {
@@ -170,7 +171,9 @@ namespace Assignment2
                     }
                 case 2:
                     {
-
+                        reportViewer1.Hide();
+                        reportViewer2.Hide();
+                        reportViewer3.Hide();
                         using (Assignment2Entities8 db = new Assignment2Entities8())
                         {
                             GetBugNumberStatusPeriod_ResultBindingSource.DataSource = db.GetBugNumberStatusPeriod(cmbFrom.SelectedItem.ToString(), cmbTo.SelectedItem.ToString(), cmbStatus.SelectedItem.ToString(), this.projectIDRP);

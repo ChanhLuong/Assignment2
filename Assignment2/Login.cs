@@ -13,7 +13,7 @@ namespace Assignment2
 {
     public partial class Login : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=MEOMEO-PC\SQLEXPRESS;Initial Catalog=Assignment2;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=(local)\SQLEXPRESS;Initial Catalog=Assignment2;Integrated Security=True");
 
         public Login()
         {

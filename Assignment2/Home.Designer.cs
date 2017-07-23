@@ -29,14 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.gvHome = new System.Windows.Forms.DataGridView();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priorityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bugDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.assignment2DataSet5 = new Assignment2.Assignment2DataSet5();
             this.assignment2DataSet4 = new Assignment2.Assignment2DataSet4();
@@ -46,16 +50,13 @@
             this.pieBugStatus = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
             this.gvHome2 = new System.Windows.Forms.DataGridView();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priorityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priorityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gvHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bugDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assignment2DataSet5)).BeginInit();
@@ -82,6 +83,30 @@
             this.gvHome.Size = new System.Drawing.Size(445, 139);
             this.gvHome.TabIndex = 0;
             this.gvHome.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvHome_CellContentClick);
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            // 
+            // priorityDataGridViewTextBoxColumn
+            // 
+            this.priorityDataGridViewTextBoxColumn.DataPropertyName = "Priority";
+            this.priorityDataGridViewTextBoxColumn.HeaderText = "Priority";
+            this.priorityDataGridViewTextBoxColumn.Name = "priorityDataGridViewTextBoxColumn";
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
             // 
             // bugDataBindingSource
             // 
@@ -112,50 +137,53 @@
             this.chrDefectStatus.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.chrDefectStatus.BackColor = System.Drawing.Color.Transparent;
             this.chrDefectStatus.BorderlineColor = System.Drawing.Color.Black;
-            chartArea1.Name = "ChartArea1";
-            this.chrDefectStatus.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chrDefectStatus.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.chrDefectStatus.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chrDefectStatus.Legends.Add(legend3);
             this.chrDefectStatus.Location = new System.Drawing.Point(289, 57);
             this.chrDefectStatus.Name = "chrDefectStatus";
-            series1.BackSecondaryColor = System.Drawing.Color.Transparent;
-            series1.ChartArea = "ChartArea1";
-            series1.LabelBackColor = System.Drawing.Color.Transparent;
-            series1.Legend = "Legend1";
-            series1.Name = "Status";
-            this.chrDefectStatus.Series.Add(series1);
+            series3.BackSecondaryColor = System.Drawing.Color.Transparent;
+            series3.ChartArea = "ChartArea1";
+            series3.LabelBackColor = System.Drawing.Color.Transparent;
+            series3.Legend = "Legend1";
+            series3.Name = "Status";
+            this.chrDefectStatus.Series.Add(series3);
             this.chrDefectStatus.Size = new System.Drawing.Size(280, 253);
             this.chrDefectStatus.TabIndex = 1;
             this.chrDefectStatus.Text = "Total of bugs which were submitted by you";
-            title1.Name = "Total of bugs which were submitted by you";
-            this.chrDefectStatus.Titles.Add(title1);
+            title2.Name = "Total of bugs which were submitted by you";
+            this.chrDefectStatus.Titles.Add(title2);
+            this.chrDefectStatus.Visible = false;
             // 
             // pieBugStatus
             // 
             this.pieBugStatus.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pieBugStatus.BackColor = System.Drawing.Color.Transparent;
             this.pieBugStatus.BorderlineColor = System.Drawing.Color.Transparent;
-            chartArea2.Name = "ChartArea1";
-            this.pieBugStatus.ChartAreas.Add(chartArea2);
+            chartArea4.Name = "ChartArea1";
+            this.pieBugStatus.ChartAreas.Add(chartArea4);
             this.pieBugStatus.DataSource = this.bugDataBindingSource;
-            legend2.Name = "Legend1";
-            this.pieBugStatus.Legends.Add(legend2);
+            legend4.Name = "Legend1";
+            this.pieBugStatus.Legends.Add(legend4);
             this.pieBugStatus.Location = new System.Drawing.Point(12, 43);
             this.pieBugStatus.Name = "pieBugStatus";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.IsValueShownAsLabel = true;
-            series2.Legend = "Legend1";
-            series2.Name = "Status";
-            series2.XValueMember = "Status";
-            series2.YValueMembers = "0";
-            this.pieBugStatus.Series.Add(series2);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series4.IsValueShownAsLabel = true;
+            series4.Legend = "Legend1";
+            series4.Name = "Status";
+            series4.XValueMember = "Status";
+            series4.YValueMembers = "0";
+            this.pieBugStatus.Series.Add(series4);
             this.pieBugStatus.Size = new System.Drawing.Size(281, 267);
             this.pieBugStatus.TabIndex = 2;
             this.pieBugStatus.Text = "Number of bugs which are in progress";
+            this.pieBugStatus.Visible = false;
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Symbol", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 9);
@@ -179,30 +207,6 @@
             this.gvHome2.Name = "gvHome2";
             this.gvHome2.Size = new System.Drawing.Size(445, 181);
             this.gvHome2.TabIndex = 4;
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            // 
-            // priorityDataGridViewTextBoxColumn
-            // 
-            this.priorityDataGridViewTextBoxColumn.DataPropertyName = "Priority";
-            this.priorityDataGridViewTextBoxColumn.HeaderText = "Priority";
-            this.priorityDataGridViewTextBoxColumn.Name = "priorityDataGridViewTextBoxColumn";
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
             // 
             // iDDataGridViewTextBoxColumn1
             // 
@@ -250,12 +254,24 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "List of bugs that you have reported so far:";
             // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(138, 327);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(275, 21);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "The number of bugs in different status";
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1127, 425);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.gvHome2);
@@ -301,5 +317,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

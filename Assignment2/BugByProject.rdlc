@@ -405,10 +405,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.71875in</Height>
+    <Height>1.04167in</Height>
     <Style />
   </Body>
-  <Width>5.69667in</Width>
+  <Width>7.05084in</Width>
   <Page>
     <PageHeader>
       <Height>1.06125in</Height>
@@ -425,7 +425,7 @@
                   <Value>NUMBER OF BUGS FOR PROJECT</Value>
                   <Style>
                     <FontFamily>Segoe UI Symbol</FontFamily>
-                    <FontSize>18pt</FontSize>
+                    <FontSize>16pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -490,42 +490,9 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>0.53125in</Height>
+      <Height>1.54167in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
-      <ReportItems>
-        <Textbox Name="Textbox3">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>="Page: "&amp;Globals!PageName</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Center</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>0.15625in</Top>
-          <Left>4.50917in</Left>
-          <Height>0.25in</Height>
-          <Width>1in</Width>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-      </ReportItems>
       <Style>
         <Border>
           <Style>None</Style>

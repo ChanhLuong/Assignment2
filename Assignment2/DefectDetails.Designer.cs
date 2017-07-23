@@ -402,7 +402,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(662, 702);
+            this.ClientSize = new System.Drawing.Size(712, 702);
             this.Controls.Add(this.lblTaxonamy1);
             this.Controls.Add(this.lblEnvironment);
             this.Controls.Add(this.label10);
