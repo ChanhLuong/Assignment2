@@ -9,8 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-namespace Assignment2
+namespace Assignment2.Application
 {
+    using Assignments.Business;
+
     public partial class Add_New_Defect : Form
     {
         Add_New_Testcase formTC = new Add_New_Testcase();
@@ -39,22 +41,13 @@ namespace Assignment2
         }
         void ProjectList()
         {
-            conn.Open(); // connection management
+            var service = new DefectService();
+            var projects = service.ProjectList(UserIDTemp);
 
-            // database queries 
-            //SqlCommand sqlCmd = new SqlCommand("SELECT DISTINCT Name FROM Projects", conn);
-            SqlCommand sqlCmd = new SqlCommand("select ID, Name from Projects where ID in (select ProjectID from SubSystem where ID in (select SubSystemID from Assignment where UserID = '" + UserIDTemp + "'))", conn);
-            SqlDataReader sqlReader = sqlCmd.ExecuteReader();
+            var proj = projects.FirstOrDefault();
 
-            // render data to UI
-            while (sqlReader.Read())
-            {
-                lblProjectName.Text = sqlReader["Name"].ToString();
-                projectID = sqlReader["ID"].ToString();
-            }
-
-            //connection management
-            conn.Close();
+            lblProjectName.Text = proj.Name;
+            projectID = proj.Id;
         }
 
         void SubSystem()
